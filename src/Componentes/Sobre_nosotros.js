@@ -13,7 +13,7 @@ const Sobre_nosotros = () => {
                     <li>Dante Prantt Oviedo ↓</li>
                     <li><a class='enlace_github' target='blank' href='https://github.com/QuiteShyyy'>QuiteShyyy</a></li>
                     <li>Repositorio del proyecto ↓</li>
-                    <li><a class='enlace_github' target='blank' href='https://github.com/Kerooo0/parcial_2_pd'>Tell me about you</a></li>
+                    <li><a class='enlace_github' target='blank' href='https://github.com/Kerooo0/final_pd'>Tell me about you</a></li>
 
                 </ul>
             </main>

@@ -1,6 +1,7 @@
 import { meses } from './meses';
 import { paises_sudamericanos } from './paises';
 import { signos } from './signos';
+import { edad } from './edad';
 
 export function mostrarSigno() {
     var signoSeleccionado = document.getElementById("signo_zodiacal").value;
@@ -17,6 +18,23 @@ export function mostrarSigno() {
         listaSignos.appendChild(li);
     }
 }
+
+export function mostrarEdad() {
+    var edadSeleccionada = document.getElementById("edad").value;
+    var edadEncotrada = edad.find(e => e.edad === edadSeleccionada);
+    var listaEdad = document.getElementById("edad-lista");
+    listaEdad.innerHTML = "";   // limpio la lista
+    if (edadEncotrada) {
+        var li = document.createElement("li");
+        li.innerHTML = "<h2>" + edadEncotrada.edad + "</h2><ul><li>Descripcion: " + edadEncotrada.descripcion + "</li></ul>";
+        listaEdad.appendChild(li);
+    } else {
+        var li = document.createElement("li");
+        li.innerHTML = "<h2> Edad no encontrada </h2>";
+        listaEdad.appendChild(li);
+    }
+}
+
 
 export function mostrarMes() {
     var mesSeleccionado = document.getElementById("mes_nacimiento").value;

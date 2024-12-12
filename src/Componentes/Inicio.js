@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { mostrarSigno, mostrarMes, seleccionarPais, mostrarPais } from './funciones';
+import { mostrarSigno, mostrarMes, seleccionarPais, mostrarPais, mostrarEdad } from './funciones';
 
 const Inicio = () => {
     const [pais, setPais] = useState('');
     const [mesNacimiento, setMesNacimiento] = useState('');
     const [signoZodiacal, setSignoZodiacal] = useState('');
-    const [resultados, setResultados] = useState({ pais: null, mes: null, signo: null });
+    const [edad, setEdad] = useState('');
+    const [resultados, setResultados] = useState({ pais: null, mes: null, signo: null, edad: null });
 
     const handlePaisClick = (event) => {
         const paisSeleccionado = event.target.alt.toLowerCase();
@@ -16,11 +17,12 @@ const Inicio = () => {
         const paisResultado = mostrarPais(pais);
         const mesResultado = mostrarMes(mesNacimiento);
         const signoResultado = mostrarSigno(signoZodiacal);
-        setResultados({ pais: paisResultado, mes: mesResultado, signo: signoResultado });
+        const edadResultado = mostrarEdad(edad);
+        setResultados({ pais: paisResultado, mes: mesResultado, signo: signoResultado, edad: edadResultado });
     };
 
     return (
-        <div class="container">
+        <div className="container">
             <main>
                 <form className="información" action="">
                     <div>
@@ -78,6 +80,16 @@ const Inicio = () => {
                             <option value="Piscis">Piscis</option>
                         </select>
                     </div>
+                    
+                    <div>
+                        <label className="label" htmlFor="edad"> Selecciona tu edad </label>
+                        <select id="edad" name="edad-lista" value={edad} onChange={(e) => setEdad(e.target.value)}>
+                            <option value="0-5">0-5</option>
+                            <option value="6-12">6-12</option>
+                            <option value="13-19">13-19</option>
+                            <option value="20-40">20-40</option>
+                        </select>
+                    </div>
 
                     <input className="buton" type="button" value="Enviar" onClick={handleEnviarClick} />
                 </form>
@@ -86,6 +98,7 @@ const Inicio = () => {
                     <ul id="paises-lista"></ul>
                     <ul id="meses-lista"></ul>
                     <ul id="signos-lista"></ul>
+                    <ul id="edad-lista"></ul>
                 </div>
             </main>
 
